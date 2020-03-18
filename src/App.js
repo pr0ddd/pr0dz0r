@@ -1,7 +1,7 @@
 import React from 'react';
-import DateCountdown from 'react-date-countdown-timer';
 import logo from './logo.svg';
 import './App.css';
+import { Context, SnakeGame } from "react-game-snake";
 
 function App() {
   return (
@@ -9,7 +9,24 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-       <DateCountdown dateTo='June 13, 2020 00:00:01' callback={()=>alert('Happy birthday')}/>
+          <SnakeGame
+            colors={{
+              field: "#282C34",
+              food: "#9b59b6",
+              snake: "#3498db",
+            }}
+            countOfHorizontalFields={20}
+            countOfVerticalFields={20}
+            fieldSize={20}
+            loopTime={200}
+            pauseAllowed={true}
+            restartAllowed={true}
+            onLoose={(context: Context) => alert(`You loosed with ${context.game.points} points.`)}
+            onPause={(context: Context) => alert("paused")}
+            onRestart={(context: Context) => alert("restarted")}
+            onResume={(context: Context) => alert("onResume")}
+            onWin={(context: Context) => alert(`You won with ${context.game.points} points.`)}
+          />
         </p>
       </header>
     </div>

@@ -7,6 +7,10 @@
   pointer-events: none;
 }
 
+p {
+  border: 5px solid #61DAFB;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
